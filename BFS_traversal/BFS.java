@@ -19,7 +19,7 @@ class BFS
     void bfs(int root)
     {
         Queue<Integer> q=new LinkedList<>();
-        boolean[] visited=new boolean[n+1];
+        boolean[] visited=new boolean[n];
         visited[root]=true;
         q.add(root);
         while(!q.isEmpty())
@@ -53,7 +53,7 @@ class BFS
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the vertices");
         int n=sc.nextInt();
-        BFS ob=new BFS(n);
+        BFS ob=new BFS(n+1);
         System.out.println("Enter the edges");
         int e=sc.nextInt();
         for(int i=0;i<e;i++)
