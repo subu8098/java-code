@@ -1,0 +1,33 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String s="abc";
+        List<List<Character>> ans=new ArrayList<>();
+        List<Character> ds=new ArrayList<>();
+        int n=s.length();
+        boolean visit[]=new boolean[n];
+        permutation(s,ans,ds,n,visit);
+        System.out.println(ans);
+    }
+    public static void permutation(String s,List<List<Character>> ans,List<Character> ds,int n,boolean[] visit)
+    {
+        if(ds.size()==n)
+        {
+            ans.add(new ArrayList<>(ds));
+            return;
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(!visit[i])
+            {
+                visit[i]=true;
+                ds.add(s.charAt(i));
+                permutation(s,ans,ds,n,visit);
+                ds.remove(ds.size()-1);
+                visit[i]=false;
+            }
+        }
+    }
+}
